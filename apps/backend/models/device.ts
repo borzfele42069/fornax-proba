@@ -1,11 +1,13 @@
 import { DataTypes } from 'sequelize';
-import { Status } from './Status';
+import sequelize from '../config/database';
+import { Status } from '../models/Status';
 
 const Device = sequelize.define('Device', {
   id: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    primaryKey: true,
   },
   name: {
     type: DataTypes.STRING,
@@ -25,7 +27,6 @@ const Device = sequelize.define('Device', {
   status: {
     type: DataTypes.ENUM(...Object.values(Status)),
     allowNull: false,
-    unique: true,
   },
   location: {
     type: DataTypes.STRING,

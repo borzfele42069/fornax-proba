@@ -1,13 +1,13 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASS,
+  process.env.DB_NAME as string,
+  process.env.DB_USER as string,
+  process.env.DB_PASS as string,
   {
     host: process.env.DB_HOST || 'localhost',
     dialect: 'postgres',
   }
 );
 
-module.exports = sequelize;
+export default sequelize;
